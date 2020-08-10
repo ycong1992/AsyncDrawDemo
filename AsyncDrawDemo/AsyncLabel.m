@@ -13,11 +13,20 @@
 @implementation AsyncLabel
 
 /**
+ https://www.jianshu.com/p/6634dbdf2964
+ https://www.jianshu.com/p/154451e4bd42
+ 核心思想：
+ CoreGraphics 框架可以通过图片上下文将绘制内容制作为一张位图，并且这个操作可以在非主线程执行。那么，当有 n 个绘制任务时，可以开辟多个线程在后台异步绘制，绘制成功拿到位图回到主线程赋值给 CALayer 的寄宿图属性。
+
  主要处理流程如下：
  1)在主线程的runLoop中注册一个observer，它的优先级要比系统的CATransaction要低，保证系统先做完必须的工作
- 2)把需要异步绘制的操作集中起来。比如设置字体、颜色、背景这些，不是设置一个就绘制一个，把他们都收集起来，runloop会在observer需要的时机通知统一处理
+ 2)把需要异步绘制的操作集中起来。比如设置字体、颜色、背景这些，不是设置一个就绘制一个，把他们都收集起来，runloop会在observer需要的时机通知统一处理(通过NSMutableSet存储对应的view或layer对象，对同一对象的字体颜色等设置时，由于是同一对象，所以会被集中成一个)
  3)处理时机到时，执行异步绘制，并在主线程中把绘制结果传递给layer.contents
 
+ 备注：
+ 1）YYTransaction 类重写了 hash 算法，将_selector和_target的内存地址进行一个位异或处理，意味着只要_selector和_target地址都相同时，hash 值就相同。这样做的原因是避免重复，将同一runloop周期内的target和selector统一为一个处理
+ 2）在绘制每一行文本前，都会调用 isCancelled() 来进行判断，保证被取消的任务能及时退出，不至于影响后续操作(在提交重绘请求时，计数器加一)
+ 3）YYAsyncLayer使用YYDispatchQueuePool为不同优先级创建和 CPU 数量相同的 serial queue，每次从 pool 中获取 queue 时，会轮询返回其中一个 queue。我把 App 内所有异步操作，包括图像解码、对象释放、异步绘制等，都按优先级不同放入了全局的 serial queue 中执行，这样尽量避免了过多线程导致的性能问题。
  */
 
 - (void)setText:(NSString *)text {
