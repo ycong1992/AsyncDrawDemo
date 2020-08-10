@@ -15,6 +15,8 @@
 		06EDC8B224E0E4A30096784B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06EDC8B024E0E4A30096784B /* LaunchScreen.storyboard */; };
 		06EDC8B524E0E4A30096784B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EDC8B424E0E4A30096784B /* main.m */; };
 		06EDC8BF24E0E4A30096784B /* AsyncDrawDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EDC8BE24E0E4A30096784B /* AsyncDrawDemoUITests.m */; };
+		06EDC8CB24E0E4FE0096784B /* AsyncLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EDC8CA24E0E4FE0096784B /* AsyncLabel.m */; };
+		B8A9ED13CAF3D3AA26BF98B2 /* libPods-AsyncDrawDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BC34175FDC06959D7713C5 /* libPods-AsyncDrawDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,11 @@
 		06EDC8BA24E0E4A30096784B /* AsyncDrawDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AsyncDrawDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EDC8BE24E0E4A30096784B /* AsyncDrawDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncDrawDemoUITests.m; sourceTree = "<group>"; };
 		06EDC8C024E0E4A30096784B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06EDC8C924E0E4FE0096784B /* AsyncLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncLabel.h; sourceTree = "<group>"; };
+		06EDC8CA24E0E4FE0096784B /* AsyncLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncLabel.m; sourceTree = "<group>"; };
+		70BC34175FDC06959D7713C5 /* libPods-AsyncDrawDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AsyncDrawDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DA0EE0B7E194F39E7F8EB3C /* Pods-AsyncDrawDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncDrawDemo.release.xcconfig"; path = "Target Support Files/Pods-AsyncDrawDemo/Pods-AsyncDrawDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E820C490D2BA8BE387F59CD7 /* Pods-AsyncDrawDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AsyncDrawDemo.debug.xcconfig"; path = "Target Support Files/Pods-AsyncDrawDemo/Pods-AsyncDrawDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8A9ED13CAF3D3AA26BF98B2 /* libPods-AsyncDrawDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +77,8 @@
 				06EDC8A124E0E4A10096784B /* AsyncDrawDemo */,
 				06EDC8BD24E0E4A30096784B /* AsyncDrawDemoUITests */,
 				06EDC8A024E0E4A10096784B /* Products */,
+				8C765BBBB4747F2E9400E185 /* Pods */,
+				32D96F7A82F360BF6C41F99E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +100,8 @@
 				06EDC8A624E0E4A10096784B /* SceneDelegate.m */,
 				06EDC8A824E0E4A10096784B /* ViewController.h */,
 				06EDC8A924E0E4A10096784B /* ViewController.m */,
+				06EDC8C924E0E4FE0096784B /* AsyncLabel.h */,
+				06EDC8CA24E0E4FE0096784B /* AsyncLabel.m */,
 				06EDC8AB24E0E4A10096784B /* Main.storyboard */,
 				06EDC8AE24E0E4A30096784B /* Assets.xcassets */,
 				06EDC8B024E0E4A30096784B /* LaunchScreen.storyboard */,
@@ -108,6 +120,24 @@
 			path = AsyncDrawDemoUITests;
 			sourceTree = "<group>";
 		};
+		32D96F7A82F360BF6C41F99E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70BC34175FDC06959D7713C5 /* libPods-AsyncDrawDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8C765BBBB4747F2E9400E185 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E820C490D2BA8BE387F59CD7 /* Pods-AsyncDrawDemo.debug.xcconfig */,
+				7DA0EE0B7E194F39E7F8EB3C /* Pods-AsyncDrawDemo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -115,6 +145,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06EDC8C324E0E4A30096784B /* Build configuration list for PBXNativeTarget "AsyncDrawDemo" */;
 			buildPhases = (
+				09C977E3CD3F7A9099655CF6 /* [CP] Check Pods Manifest.lock */,
 				06EDC89B24E0E4A10096784B /* Sources */,
 				06EDC89C24E0E4A10096784B /* Frameworks */,
 				06EDC89D24E0E4A10096784B /* Resources */,
@@ -203,12 +234,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09C977E3CD3F7A9099655CF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AsyncDrawDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		06EDC89B24E0E4A10096784B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				06EDC8AA24E0E4A10096784B /* ViewController.m in Sources */,
+				06EDC8CB24E0E4FE0096784B /* AsyncLabel.m in Sources */,
 				06EDC8A424E0E4A10096784B /* AppDelegate.m in Sources */,
 				06EDC8B524E0E4A30096784B /* main.m in Sources */,
 				06EDC8A724E0E4A10096784B /* SceneDelegate.m in Sources */,
@@ -365,6 +422,7 @@
 		};
 		06EDC8C424E0E4A30096784B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E820C490D2BA8BE387F59CD7 /* Pods-AsyncDrawDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -381,6 +439,7 @@
 		};
 		06EDC8C524E0E4A30096784B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DA0EE0B7E194F39E7F8EB3C /* Pods-AsyncDrawDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
