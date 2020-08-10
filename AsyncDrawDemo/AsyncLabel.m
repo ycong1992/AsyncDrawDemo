@@ -29,6 +29,20 @@
  3）YYAsyncLayer使用YYDispatchQueuePool为不同优先级创建和 CPU 数量相同的 serial queue，每次从 pool 中获取 queue 时，会轮询返回其中一个 queue。我把 App 内所有异步操作，包括图像解码、对象释放、异步绘制等，都按优先级不同放入了全局的 serial queue 中执行，这样尽量避免了过多线程导致的性能问题。
  */
 
+/**
+ https://www.jianshu.com/p/e0277ac633bc
+ 上下文：
+ UIGraphicsGetCurrentContext() 获取最顶层的上下文
+ UIGraphicsBeginImageContextWithOptions() 创建位图上下文
+ UIGraphicsEndImageContext() 关闭位图上下文
+ 从绘制路径CGMutablePathRef开始：
+ CGMutablePathRef是一个可变的路径，可通过CGPathCreateMutable()创建，该路径在被创建后，需要通过CGPathAddRect加到Context中
+ 文本信息：(NSString —— NSAttributedString—— CFAttributedStringRef ——CTFramesetterRef ——CTFrameRef)
+ 通过CTFramesetterCreateWithAttributedString创建CTFramesetterRef
+ CTFramesetterCreateFrame
+ 
+ */
+
 - (void)setText:(NSString *)text {
     _text = text.copy;
     [[YYTransaction transactionWithTarget:self selector:@selector(contentsNeedUpdated)] commit];
