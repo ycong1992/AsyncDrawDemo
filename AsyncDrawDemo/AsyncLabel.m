@@ -110,6 +110,9 @@
     return task;
 }
 
+/**
+ UIView创建了它的宿主图层时，会自动地把图层(layer)的delegate设置为它自己，并提供了一个-displayLayer:的实现。layer的display方法中默认会调用displayLayer
+ */
 //- (void)displayLayer:(CALayer *)layer {
 //    NSLog(@"Current Thread : %d", [[NSThread currentThread] isMainThread]);
 //    // 最好自创队列
